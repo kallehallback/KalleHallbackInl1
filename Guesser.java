@@ -19,6 +19,21 @@ public class Guesser {
 	}
 
 	public void doGuesses() {
+	int numberOfGuesses = 0;
+        int middle = 0;
 
+        while (low < high) {
+            middle = low + (high - low)/2;
+
+            System.out.println("Is the number less than or equal to " + middle + "?");
+
+            String reply = getReply();
+            if (reply.equals("T")) {
+                high = middle;
+            }
+            else {
+                low = middle + 1;
+            }
+            numberOfGuesses++;
 	}
 }
