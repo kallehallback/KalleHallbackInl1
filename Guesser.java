@@ -39,6 +39,7 @@ public class Guesser {
             		}
             		numberOfGuesses++;
 		}
+		answer(low, numberOfGuesses);
 	}
 
 	public String getReply() {
@@ -54,5 +55,9 @@ public class Guesser {
         	else {
             		return reply;
         	}
+    	}
+
+	public void answer(int guess, int numberOfGuesses) {
+        	System.out.println("You were thinking about " + guess + " (took me " + numberOfGuesses + " guesses)");
     	}
 }
