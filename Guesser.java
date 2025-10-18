@@ -11,4 +11,10 @@ public class Guesser {
 		rules();
 		doGuesses();
 	}
+
+	public void rules() {
+		System.out.println("Think of a number between " + low + " and " + high);
+        	System.out.println("In order to guess your number, I will ask a series of questions.");
+	        System.out.println("Answer T for true, and F for false.");
+	}
 }
