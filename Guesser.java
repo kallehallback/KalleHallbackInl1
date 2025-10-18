@@ -1,4 +1,7 @@
+import java.util.Scanner;
+
 public class Guesser {
+	Scanner scanner = new Scanner(System.in);
 	private int low;
 	private int high;
 
@@ -19,21 +22,37 @@ public class Guesser {
 	}
 
 	public void doGuesses() {
-	int numberOfGuesses = 0;
-        int middle = 0;
+		int numberOfGuesses = 0;
+        	int middle = 0;
 
-        while (low < high) {
-            middle = low + (high - low)/2;
+		while (low < high) {
+            		middle = low + (high - low)/2;
 
-            System.out.println("Is the number less than or equal to " + middle + "?");
+            		System.out.println("Is the number less than or equal to " + middle + "?");
 
-            String reply = getReply();
-            if (reply.equals("T")) {
-                high = middle;
-            }
-            else {
-                low = middle + 1;
-            }
-            numberOfGuesses++;
+            		String reply = getReply();
+            		if (reply.equals("T")) {
+                		high = middle;
+            		}
+            		else {
+                		low = middle + 1;
+            		}
+            		numberOfGuesses++;
+		}
 	}
+
+	public String getReply() {
+        	String reply = scanner.nextLine();
+
+        	while (!reply.equals("T") && !reply.equals("F")) {
+            		System.out.println("Please write T or F");
+            		reply = scanner.nextLine();
+        	}
+        	if (reply.equals("T")) {
+            		return reply;
+        	}
+        	else {
+            		return reply;
+        	}
+    	}
 }
