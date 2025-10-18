@@ -6,4 +6,9 @@ public class Guesser {
 		this.low = low;
 		this.high = high;
 	}
+
+	public void start() {
+		rules();
+		doGuesses();
+	}
 }
