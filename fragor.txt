@@ -1,0 +1,36 @@
+Vad är pull repektive push?
+
+Pull är vad som hämtar ändringar i ett remote repository, som på GitHub, till ditt lokala repo.
+Push skickar ändringar du har gjort i ditt lokala repo, till ett remote repository.
+
+När använder man log respektive status?
+
+'git log' används för att se "historiken" av de commits du har gjort. Du kan se hashcoden för commiten,
+vem som gjorde commiten, när commiten gjordes, samt kommentaren som gavs.
+'git status' används för att se vad som har ändrats sedan den senaste commiten. Du ser saker som
+behöver commitas, och saker som behöver addas. Det skriver även ut vilken branch du står i.
+
+Vad är en Git branch och varför är de viktiga?
+
+En branch är en separat del av ett repo, där man kan ändra saker utan att nödvändigtvis behöva ändra
+någonting i originalrepot. Därmed kan du pröva olika idéer, och sedan använda git merge för att
+ta med några av dessa förändringar till originalrepot, om du vill.
+
+Det finns flera sätt att rulla tillbaka koden till ett tidigare tillstånd. 
+Förklara skillnaden och motivera när man skulle använda den ena eller andra metoden. 
+Ge exempel på de kommandon du använder för att göra detta och visa att det fungerar, vilken output 
+du fick från git-kommandona.
+
+Att rulla tillbaka till äldre commits går att göra med tre kommandon, restore, revert, och reset.
+	Restore 'restorar', alltså återställer filer till hur de såg ut i gamla commits. Man kan använda 
+HEAD~x, eller hashcoden för att välja vilken commit man tar från. Restore ändrar ingenting i 
+commit-historiken, bara i working directory, och med --staged kan du även 'unstagea' ändringar.
+	Revert tar bort ändringar från ditt senaste commit genom att 'reverta', alltså återgå
+till en äldre commit. Den gör detta genom att skapa en ny kommit som är samma som en tidigare. 
+Det går att göra med både HEAD och hashcode, och används för att på ett säkert sätt ångra ändringar 
+du har gjort, då ingenting försvinner.
+	Reset är det mest komplicerade kommandot. Det finns tre typer --soft, --mixed, och --hard.
+Soft flyttar dig till den commit du väljer, men ändrar ingenting i din staging area. Mixed är standard-
+varianten, det flyttar HEAD, och avmarkerar alla ändringar i ditt staging area. Hard flyttar HEAD
+precis som de andra två, men alla ändringar som gjorts försvinner. Om man vill ta bort både commits och
+ändringar man gjort, då kan man använda --hard. 
