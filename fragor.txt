@@ -24,13 +24,16 @@ du fick från git-kommandona.
 Att rulla tillbaka till äldre commits går att göra med tre kommandon, restore, revert, och reset.
 	Restore 'restorar', alltså återställer filer till hur de såg ut i gamla commits. Man kan använda 
 HEAD~x, eller hashcoden för att välja vilken commit man tar från. Restore ändrar ingenting i 
-commit-historiken, bara i working directory, och med --staged kan du även 'unstagea' ändringar.
+commit-historiken, bara i working directory, och med --staged kan du även 'unstagea' ändringar. Restore
+ger ingen output i konsolen.
 	Revert tar bort ändringar från ditt senaste commit genom att 'reverta', alltså återgå
 till en äldre commit. Den gör detta genom att skapa en ny kommit som är samma som en tidigare. 
 Det går att göra med både HEAD och hashcode, och används för att på ett säkert sätt ångra ändringar 
-du har gjort, då ingenting försvinner.
+du har gjort, då ingenting försvinner. Outputen från revert berättar vilken commit som revertats, vilka
+filer som har påverkats, (modifierats eller tagits bort).
 	Reset är det mest komplicerade kommandot. Det finns tre typer --soft, --mixed, och --hard.
-Soft flyttar dig till den commit du väljer, men ändrar ingenting i din staging area. Mixed är standard-
-varianten, det flyttar HEAD, och avmarkerar alla ändringar i ditt staging area. Hard flyttar HEAD
-precis som de andra två, men alla ändringar som gjorts försvinner. Om man vill ta bort både commits och
-ändringar man gjort, då kan man använda --hard. 
+Soft flyttar dig till den commit du väljer, men ändrar ingenting i din staging area. Den ger ingen
+output i konsolen. Mixed är standard-varianten, det flyttar HEAD, och avmarkerar alla ändringar i ditt 
+staging area. Den ger ingen output i konsolen. Hard flyttar HEAD precis som de andra två, men alla 
+ändringar som gjorts försvinner. Om man vill ta bort både commits och ändringar man gjort, då kan 
+man använda --hard. Outputen från --hard säger vart HEAD nu befinner sig.
